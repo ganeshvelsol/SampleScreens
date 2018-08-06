@@ -1,0 +1,85 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginTop="15dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:src="@drawable/bookings"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="15dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/amethysta"
+        android:gravity="center"
+        android:text="@string/login_to_your_personal_notepad"
+        android:textColor="#426" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="2">
+        <ImageView
+            android:src="@drawable/key"
+            android:layout_width="0dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="5dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.5"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true">
+
+        <EditText
+            android:id="@+id/login_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_password"
+            android:ems="10"
+            android:paddingLeft="5dp"
+            android:inputType="textPassword"
+            android:fontFamily="@font/amethysta"
+            android:background="@drawable/edittext_backgroung"
+            android:layout_gravity="center"
+            android:maxLength="10"/>
+    </android.support.design.widget.TextInputLayout>
+    </LinearLayout>
+    <Button
+        android:id="@+id/login_2"
+        android:background="@drawable/shape_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/amethysta"
+        android:textAllCaps="false"/>
+    <TextView
+        android:id="@+id/forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/almendra"
+        android:gravity="end"
+        android:textSize="15sp"
+        android:padding="5dp"
+        android:layout_marginRight="3dp"
+        android:background="@drawable/shape_button"
+        android:text="@string/forgot_password"
+        android:textColor="#122" />
+</LinearLayout>
+</LinearLayout>

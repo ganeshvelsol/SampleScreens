@@ -1,0 +1,128 @@
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <ImageView
+            android:src="@drawable/bookings"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/app_name"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:gravity="center"
+            android:text="@string/simple_registration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:fontFamily="@font/amethysta"
+            android:textColor="#426"
+            android:textSize="15sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+            <ImageView
+                android:src="@drawable/phone"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:layout_weight="1.5"/>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_backgroung"
+                    android:ems="10"
+                    android:paddingLeft="5dp"
+                    android:fontFamily="@font/amethysta"
+                    android:hint="@string/enter_number"
+                    android:inputType="phone"
+                    android:maxLength="10" />
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="15dp"
+            android:weightSum="2">
+
+            <ImageView
+                android:src="@drawable/lock"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:passwordToggleEnabled="true"
+                android:gravity="center">
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:fontFamily="@font/amethysta"
+                    android:ems="10"
+                    android:paddingLeft="5dp"
+                    android:hint="@string/provide_password"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_backgroung" />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+    <Button
+        android:id="@+id/save_data"
+        android:text="@string/signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:layout_gravity="center"
+        android:fontFamily="@font/amethysta"
+        android:background="@drawable/shape_button"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:id="@+id/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/almendra"
+        android:layout_marginRight="5dp"
+        android:padding="3dp"
+        android:background="@drawable/shape_button"
+        android:gravity="end"
+        android:text="@string/already_register" />
+
+</LinearLayout>
+</ScrollView>

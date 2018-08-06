@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">SampleScreens</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="simple_registration">simple registration</string>
+    <string name="enter_number">enter number</string>
+    <string name="provide_password">provide password</string>
+    <string name="signup">signUp</string>
+    <string name="already_register">Already Register</string>
+    <string name="login_to_your_personal_notepad">Login to your personal Notepad</string>
+    <string name="enter_password">enter password</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot password</string>
+    <string name="file_name">File name</string>
+    <string name="enter_text_here">Enter text here</string>
+    <string name="save">save</string>
+    <string name="enter_registered_mobile_number">enter registered mobile number</string>
+</resources>
