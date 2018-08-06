@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity
                     //here code for on list position click listener action
                     TextView mtext=(TextView) view.findViewById(R.id.list_one);
                     String d=mtext.getText().toString().trim();
+                    
 
                  Intent i1=new  Intent(MainActivity.this,ListShow.class);
                  i1.putExtra("k1",d);
