@@ -19,7 +19,7 @@ public class MyDatadb extends SQLiteOpenHelper
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase)
     {
-        String table1="create table sample(name text,data text,dates text)";
+        String table1="create table sample(name text PRIMARY KEY not null,data text,dates text)";
         String table2="create table password(number text,password text)";
         String tab3="create table count(counter text)";
         sqLiteDatabase.execSQL(table1);

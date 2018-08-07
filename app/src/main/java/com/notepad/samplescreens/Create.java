@@ -2,6 +2,7 @@ package com.notepad.samplescreens;
 
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -70,7 +71,9 @@ public class Create extends AppCompatActivity
             MyDatadb db = new MyDatadb(this);
             SQLiteDatabase sdb = db.getWritableDatabase();
             sdb.execSQL(qry);
-            Toast.makeText(this, "succesfully data added", Toast.LENGTH_SHORT).show();
+                Snackbar ss=Snackbar.make(this.findViewById(android.R.id.content),"succesfully inserted data",Snackbar.LENGTH_LONG);
+                ss.show();
+
         }
 
 
@@ -123,5 +126,11 @@ public class Create extends AppCompatActivity
                 // app icon in action bar clicked; goto parent activity.
         }
         return true;
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        startActivity(new Intent(this,MainActivity.class));
     }
 }

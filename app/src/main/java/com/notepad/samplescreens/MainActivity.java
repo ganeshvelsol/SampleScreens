@@ -1,6 +1,8 @@
 package com.notepad.samplescreens;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +28,7 @@ public class MainActivity extends AppCompatActivity
     ListView mlist;
     List<ModelClass> employeeList= new ArrayList<>();
     public static MyBaseAdapter aa;
+    SQLiteDatabase sdb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -33,8 +37,12 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         mlist=findViewById(R.id.mlist);
 
+        showData();
+    }
+    public final void showData()
+    {
         MyDatadb mm=new MyDatadb(this);
-        SQLiteDatabase sdb=mm.getWritableDatabase();
+        sdb=mm.getWritableDatabase();
         String read="select name,dates from sample";
         Cursor c=sdb.rawQuery(read,null);
         if (c.moveToFirst())
@@ -57,17 +65,16 @@ public class MainActivity extends AppCompatActivity
                     //here code for on list position click listener action
                     TextView mtext=(TextView) view.findViewById(R.id.list_one);
                     String d=mtext.getText().toString().trim();
-                    
 
-                 Intent i1=new  Intent(MainActivity.this,ListShow.class);
-                 i1.putExtra("k1",d);
-                 startActivity(i1);
-                 finish();
+
+                    Intent i1=new  Intent(MainActivity.this,ListShow.class);
+                    i1.putExtra("k1",d);
+                    startActivity(i1);
+                    finish();
                 }
             });
         }
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -89,7 +96,6 @@ public class MainActivity extends AppCompatActivity
                  //this icon is used to create a new file in the dtatabase
                  startActivity(new Intent(this,Create.class));
                  finish();
-                 Toast.makeText(this, "clicked on another button", Toast.LENGTH_SHORT).show();
              }
          }
         return true;
@@ -124,16 +130,50 @@ public class MainActivity extends AppCompatActivity
         {
             View mview = getLayoutInflater().inflate(R.layout.cost_items, null, false);
 
-            ModelClass employee = employeeList.get(i);
+            final ModelClass employee = employeeList.get(i);
             //getting views
             TextView textViewName = mview.findViewById(R.id.list_one);
             // TextView textViewDept = mview.findViewById(R.id.rate);
             TextView text_dates = mview.findViewById(R.id.dates);
+            ImageView image=(ImageView)mview.findViewById(R.id.options_data);
 
             //adding data to views
             textViewName.setText(employee.getF_name());
             // textViewDept.setText(employee.getPrice());
             text_dates.setText(employee.getDates());
+            image.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view)
+                {
+                    AlertDialog.Builder ad=new AlertDialog.Builder(MainActivity.this);
+                    ad.setTitle("Sure to delete");
+                    ad.setPositiveButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i)
+                        {
+                            dialogInterface.dismiss();
+                        }
+                    });
+                    ad.setNegativeButton("delete", new DialogInterface.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            try
+                            {
+                                String remove_qry = "delete from sample where name='" + employee.getF_name() + "'";
+                                sdb.execSQL(remove_qry);
+                                Toast.makeText(MainActivity.this, "removed succesfully", Toast.LENGTH_SHORT).show();
+                                mlist.notifyAll();
+                                aa.notifyDataSetChanged();
+                            }catch (Exception e)
+                            {
+
+                            }
+                        }
+                    });
+                    ad.show();
+                }
+            });
             return mview;
         }
     }
