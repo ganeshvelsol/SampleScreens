@@ -37,7 +37,7 @@
                     android:layout_gravity="center"
                     android:ems="15"
                     android:lines="5"
-                    android:gravity="bottom|center"
+                    android:gravity="center"
                     android:background="@drawable/edittext_backgroung"
                     android:hint="@string/enter_text_here" />
             </android.support.design.widget.TextInputLayout>

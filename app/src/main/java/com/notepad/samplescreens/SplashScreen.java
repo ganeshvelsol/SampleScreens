@@ -20,6 +20,7 @@ public class SplashScreen extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash_screen);
         mtext=findViewById(R.id.mtext);
+        mtext.setText(" Simple mobile Notepad Application  \n to  store data  \n without using Internet ");
         sp=getSharedPreferences("status",MODE_PRIVATE);
         spe=sp.edit();
         String data=sp.getString("s",null);
