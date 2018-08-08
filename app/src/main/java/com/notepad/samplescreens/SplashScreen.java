@@ -36,6 +36,7 @@ public class SplashScreen extends AppCompatActivity
             mtext.startAnimation(an);
             an.setAnimationListener(new Animation.AnimationListener()
             {
+
                 @Override
                 public void onAnimationStart(Animation animation)
                 {
